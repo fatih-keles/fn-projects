@@ -6,13 +6,17 @@
 #Allow dynamic-group DGFNforFatihKeles> to buckets objects in compartment FatihKeles
 #Allow service objectstorage-uk-london-1 to manage object-family in tenancy
 
+## Update and install Python SDK
+#sudo apt-get update
+#sudo apt install python3-pip
+#python3 -m pip install oci oci-cli
 
 ## deploy application 
 fn deploy --app document-processing-application
 
 ## upload test data
 export _bucket_name=document_process_queue
-export _file_name=func.py
+export _file_name=analyze-document/ah_receipt.jpg
 export _object_name=tbp-aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja.bin
 
 oci os object delete --force --bucket-name $_bucket_name --object-name $_object_name
