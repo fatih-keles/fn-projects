@@ -27,19 +27,19 @@
           "document_type": "RECEIPT"
         },
         {
-          "confidence": 4.1392802e-08,
+          "confidence": 4.139276e-08,
           "document_type": "OTHERS"
         },
         {
-          "confidence": 7.1178496e-13,
+          "confidence": 7.117867e-13,
           "document_type": "INVOICE"
         },
         {
-          "confidence": 2.6401459e-13,
+          "confidence": 2.6401497e-13,
           "document_type": "RESUME"
         },
         {
-          "confidence": 9.288307e-16,
+          "confidence": 9.28835e-16,
           "document_type": "PAYSLIP"
         }
       ],
@@ -53,15 +53,15 @@
           "language_code": "NLD"
         },
         {
-          "confidence": 0.0014328316,
+          "confidence": 0.0014328269,
           "language_code": "DEU"
         },
         {
-          "confidence": 9.563446e-05,
+          "confidence": 9.563464e-05,
           "language_code": "FRA"
         },
         {
-          "confidence": 1.3433269e-05,
+          "confidence": 1.3433295e-05,
           "language_code": "SPA"
         }
       ],
@@ -205,7 +205,7 @@
               }
             ]
           },
-          "confidence": 0.9838821,
+          "confidence": 0.9838822,
           "text": "OMSCHRIJVING PRIJS BEDRAG",
           "word_indexes": [
             8,
@@ -234,7 +234,7 @@
               }
             ]
           },
-          "confidence": 0.99855036,
+          "confidence": 0.9985504,
           "text": "AH BONUS NR.",
           "word_indexes": [
             11,
@@ -263,7 +263,7 @@
               }
             ]
           },
-          "confidence": 0.8964109,
+          "confidence": 0.8964105,
           "text": "xx0012",
           "word_indexes": [
             14
@@ -290,7 +290,7 @@
               }
             ]
           },
-          "confidence": 0.956375,
+          "confidence": 0.9563749,
           "text": "1",
           "word_indexes": [
             15
@@ -317,7 +317,7 @@
               }
             ]
           },
-          "confidence": 0.9880419,
+          "confidence": 0.98804206,
           "text": "AH IBUPROFEN",
           "word_indexes": [
             16,
@@ -345,7 +345,7 @@
               }
             ]
           },
-          "confidence": 0.99617434,
+          "confidence": 0.9961746,
           "text": "1",
           "word_indexes": [
             18
@@ -372,7 +372,7 @@
               }
             ]
           },
-          "confidence": 0.94561464,
+          "confidence": 0.9456146,
           "text": "AH PARACETAM",
           "word_indexes": [
             19,
@@ -427,7 +427,7 @@
               }
             ]
           },
-          "confidence": 0.98037773,
+          "confidence": 0.9803776,
           "text": "1",
           "word_indexes": [
             22
@@ -454,7 +454,7 @@
               }
             ]
           },
-          "confidence": 0.99841875,
+          "confidence": 0.9984188,
           "text": "SEVEN UP",
           "word_indexes": [
             23,
@@ -482,7 +482,7 @@
               }
             ]
           },
-          "confidence": 0.95149815,
+          "confidence": 0.95149857,
           "text": "1.02",
           "word_indexes": [
             25
@@ -509,7 +509,7 @@
               }
             ]
           },
-          "confidence": 0.88142216,
+          "confidence": 0.881422,
           "text": "2,49",
           "word_indexes": [
             26
@@ -536,7 +536,7 @@
               }
             ]
           },
-          "confidence": 0.99644226,
+          "confidence": 0.99644214,
           "text": "3",
           "word_indexes": [
             27
@@ -563,7 +563,7 @@
               }
             ]
           },
-          "confidence": 0.9672251,
+          "confidence": 0.9672252,
           "text": "SUBTOTAAL",
           "word_indexes": [
             28
@@ -590,7 +590,7 @@
               }
             ]
           },
-          "confidence": 0.87528485,
+          "confidence": 0.87528515,
           "text": "5,25",
           "word_indexes": [
             29
@@ -617,7 +617,7 @@
               }
             ]
           },
-          "confidence": 0.9628145,
+          "confidence": 0.9628147,
           "text": "UW VOORDEEL",
           "word_indexes": [
             30,
@@ -645,7 +645,7 @@
               }
             ]
           },
-          "confidence": 0.93658346,
+          "confidence": 0.93658364,
           "text": "0.00",
           "word_indexes": [
             32
@@ -699,7 +699,7 @@
               }
             ]
           },
-          "confidence": 0.97014797,
+          "confidence": 0.9701479,
           "text": "Uw Persoonlijke Bonus",
           "word_indexes": [
             34,
@@ -755,7 +755,7 @@
               }
             ]
           },
-          "confidence": 0.9929304,
+          "confidence": 0.9929303,
           "text": "TE BETALEN",
           "word_indexes": [
             38,
@@ -783,7 +783,7 @@
               }
             ]
           },
-          "confidence": 0.9300949,
+          "confidence": 0.93009496,
           "text": "5,25",
           "word_indexes": [
             40
@@ -810,7 +810,7 @@
               }
             ]
           },
-          "confidence": 0.96394783,
+          "confidence": 0.9639477,
           "text": "BETAALD MET:",
           "word_indexes": [
             41,
@@ -838,7 +838,7 @@
               }
             ]
           },
-          "confidence": 0.90284985,
+          "confidence": 0.9028499,
           "text": "PINNEN",
           "word_indexes": [
             43
@@ -865,7 +865,7 @@
               }
             ]
           },
-          "confidence": 0.9351412,
+          "confidence": 0.93514115,
           "text": "5,25",
           "word_indexes": [
             44
@@ -947,7 +947,7 @@
               }
             ]
           },
-          "confidence": 0.98561794,
+          "confidence": 0.9856179,
           "text": "Terminal",
           "word_indexes": [
             48
@@ -974,7 +974,7 @@
               }
             ]
           },
-          "confidence": 0.91572803,
+          "confidence": 0.9157279,
           "text": "80156D",
           "word_indexes": [
             49
@@ -1001,7 +1001,7 @@
               }
             ]
           },
-          "confidence": 0.99807936,
+          "confidence": 0.9980793,
           "text": "Merchant",
           "word_indexes": [
             50
@@ -1028,7 +1028,7 @@
               }
             ]
           },
-          "confidence": 0.98733366,
+          "confidence": 0.98733354,
           "text": "1315641 Periode",
           "word_indexes": [
             51,
@@ -1083,7 +1083,7 @@
               }
             ]
           },
-          "confidence": 0.99955434,
+          "confidence": 0.9995543,
           "text": "Transactie",
           "word_indexes": [
             54
@@ -1138,7 +1138,7 @@
               }
             ]
           },
-          "confidence": 0.9896738,
+          "confidence": 0.98967373,
           "text": "(A0000000043060)",
           "word_indexes": [
             57
@@ -1247,7 +1247,7 @@
               }
             ]
           },
-          "confidence": 0.86423135,
+          "confidence": 0.8642317,
           "text": "0",
           "word_indexes": [
             62
@@ -1274,7 +1274,7 @@
               }
             ]
           },
-          "confidence": 0.9569429,
+          "confidence": 0.95694304,
           "text": "BETALING",
           "word_indexes": [
             63
@@ -1301,7 +1301,7 @@
               }
             ]
           },
-          "confidence": 0.98767626,
+          "confidence": 0.9876763,
           "text": "Datum",
           "word_indexes": [
             64
@@ -1328,7 +1328,7 @@
               }
             ]
           },
-          "confidence": 0.94528294,
+          "confidence": 0.94528306,
           "text": "22/06/2019 15:16",
           "word_indexes": [
             65,
@@ -1383,7 +1383,7 @@
               }
             ]
           },
-          "confidence": 0.96415085,
+          "confidence": 0.96415097,
           "text": "XOS125 Totaal",
           "word_indexes": [
             68,
@@ -1411,7 +1411,7 @@
               }
             ]
           },
-          "confidence": 0.93625826,
+          "confidence": 0.9362584,
           "text": "5,25 EUR",
           "word_indexes": [
             70,
@@ -1439,7 +1439,7 @@
               }
             ]
           },
-          "confidence": 0.94234324,
+          "confidence": 0.9423434,
           "text": "Leesmethode NFC Chip",
           "word_indexes": [
             72,
@@ -1468,7 +1468,7 @@
               }
             ]
           },
-          "confidence": 0.9263212,
+          "confidence": 0.92632073,
           "text": "BTW",
           "word_indexes": [
             75
@@ -1522,7 +1522,7 @@
               }
             ]
           },
-          "confidence": 0.99484247,
+          "confidence": 0.9948425,
           "text": "EUR",
           "word_indexes": [
             77
@@ -1603,7 +1603,7 @@
               }
             ]
           },
-          "confidence": 0.9385998,
+          "confidence": 0.93860006,
           "text": "0.43",
           "word_indexes": [
             80
@@ -1630,7 +1630,7 @@
               }
             ]
           },
-          "confidence": 0.9610068,
+          "confidence": 0.96100664,
           "text": "TOTAAL",
           "word_indexes": [
             81
@@ -1657,7 +1657,7 @@
               }
             ]
           },
-          "confidence": 0.9589076,
+          "confidence": 0.9589077,
           "text": "4.82",
           "word_indexes": [
             82
@@ -1684,7 +1684,7 @@
               }
             ]
           },
-          "confidence": 0.94200915,
+          "confidence": 0.9420092,
           "text": "0.43",
           "word_indexes": [
             83
@@ -1739,7 +1739,7 @@
               }
             ]
           },
-          "confidence": 0.88507146,
+          "confidence": 0.8850715,
           "text": "1515",
           "word_indexes": [
             86
@@ -1766,7 +1766,7 @@
               }
             ]
           },
-          "confidence": 0.9924705,
+          "confidence": 0.9924704,
           "text": "3",
           "word_indexes": [
             87
@@ -1820,7 +1820,7 @@
               }
             ]
           },
-          "confidence": 0.9972586,
+          "confidence": 0.99725854,
           "text": "22",
           "word_indexes": [
             89
@@ -1874,7 +1874,7 @@
               }
             ]
           },
-          "confidence": 0.99961007,
+          "confidence": 0.99960995,
           "text": "22-06-2019",
           "word_indexes": [
             91
@@ -1928,7 +1928,7 @@
               }
             ]
           },
-          "confidence": 0.9698109,
+          "confidence": 0.96981096,
           "text": "Alles voor op en",
           "word_indexes": [
             93,
@@ -2183,7 +2183,7 @@
               }
             ]
           },
-          "confidence": 0.9838821,
+          "confidence": 0.9838822,
           "text": "OMSCHRIJVING"
         },
         {
@@ -2207,7 +2207,7 @@
               }
             ]
           },
-          "confidence": 0.9838821,
+          "confidence": 0.9838822,
           "text": "PRIJS"
         },
         {
@@ -2231,7 +2231,7 @@
               }
             ]
           },
-          "confidence": 0.9838821,
+          "confidence": 0.9838822,
           "text": "BEDRAG"
         },
         {
@@ -2255,7 +2255,7 @@
               }
             ]
           },
-          "confidence": 0.99855036,
+          "confidence": 0.9985504,
           "text": "AH"
         },
         {
@@ -2279,7 +2279,7 @@
               }
             ]
           },
-          "confidence": 0.99855036,
+          "confidence": 0.9985504,
           "text": "BONUS"
         },
         {
@@ -2303,7 +2303,7 @@
               }
             ]
           },
-          "confidence": 0.99855036,
+          "confidence": 0.9985504,
           "text": "NR."
         },
         {
@@ -2327,7 +2327,7 @@
               }
             ]
           },
-          "confidence": 0.8964109,
+          "confidence": 0.8964105,
           "text": "xx0012"
         },
         {
@@ -2351,7 +2351,7 @@
               }
             ]
           },
-          "confidence": 0.956375,
+          "confidence": 0.9563749,
           "text": "1"
         },
         {
@@ -2375,7 +2375,7 @@
               }
             ]
           },
-          "confidence": 0.9880419,
+          "confidence": 0.98804206,
           "text": "AH"
         },
         {
@@ -2399,7 +2399,7 @@
               }
             ]
           },
-          "confidence": 0.9880419,
+          "confidence": 0.98804206,
           "text": "IBUPROFEN"
         },
         {
@@ -2423,7 +2423,7 @@
               }
             ]
           },
-          "confidence": 0.99617434,
+          "confidence": 0.9961746,
           "text": "1"
         },
         {
@@ -2447,7 +2447,7 @@
               }
             ]
           },
-          "confidence": 0.94561464,
+          "confidence": 0.9456146,
           "text": "AH"
         },
         {
@@ -2471,7 +2471,7 @@
               }
             ]
           },
-          "confidence": 0.94561464,
+          "confidence": 0.9456146,
           "text": "PARACETAM"
         },
         {
@@ -2519,7 +2519,7 @@
               }
             ]
           },
-          "confidence": 0.98037773,
+          "confidence": 0.9803776,
           "text": "1"
         },
         {
@@ -2543,7 +2543,7 @@
               }
             ]
           },
-          "confidence": 0.99841875,
+          "confidence": 0.9984188,
           "text": "SEVEN"
         },
         {
@@ -2567,7 +2567,7 @@
               }
             ]
           },
-          "confidence": 0.99841875,
+          "confidence": 0.9984188,
           "text": "UP"
         },
         {
@@ -2591,7 +2591,7 @@
               }
             ]
           },
-          "confidence": 0.95149815,
+          "confidence": 0.95149857,
           "text": "1.02"
         },
         {
@@ -2615,7 +2615,7 @@
               }
             ]
           },
-          "confidence": 0.88142216,
+          "confidence": 0.881422,
           "text": "2,49"
         },
         {
@@ -2639,7 +2639,7 @@
               }
             ]
           },
-          "confidence": 0.99644226,
+          "confidence": 0.99644214,
           "text": "3"
         },
         {
@@ -2663,7 +2663,7 @@
               }
             ]
           },
-          "confidence": 0.9672251,
+          "confidence": 0.9672252,
           "text": "SUBTOTAAL"
         },
         {
@@ -2687,7 +2687,7 @@
               }
             ]
           },
-          "confidence": 0.87528485,
+          "confidence": 0.87528515,
           "text": "5,25"
         },
         {
@@ -2711,7 +2711,7 @@
               }
             ]
           },
-          "confidence": 0.9628145,
+          "confidence": 0.9628147,
           "text": "UW"
         },
         {
@@ -2735,7 +2735,7 @@
               }
             ]
           },
-          "confidence": 0.9628145,
+          "confidence": 0.9628147,
           "text": "VOORDEEL"
         },
         {
@@ -2759,7 +2759,7 @@
               }
             ]
           },
-          "confidence": 0.93658346,
+          "confidence": 0.93658364,
           "text": "0.00"
         },
         {
@@ -2807,7 +2807,7 @@
               }
             ]
           },
-          "confidence": 0.97014797,
+          "confidence": 0.9701479,
           "text": "Uw"
         },
         {
@@ -2831,7 +2831,7 @@
               }
             ]
           },
-          "confidence": 0.97014797,
+          "confidence": 0.9701479,
           "text": "Persoonlijke"
         },
         {
@@ -2855,7 +2855,7 @@
               }
             ]
           },
-          "confidence": 0.97014797,
+          "confidence": 0.9701479,
           "text": "Bonus"
         },
         {
@@ -2903,7 +2903,7 @@
               }
             ]
           },
-          "confidence": 0.9929304,
+          "confidence": 0.9929303,
           "text": "TE"
         },
         {
@@ -2927,7 +2927,7 @@
               }
             ]
           },
-          "confidence": 0.9929304,
+          "confidence": 0.9929303,
           "text": "BETALEN"
         },
         {
@@ -2951,7 +2951,7 @@
               }
             ]
           },
-          "confidence": 0.9300949,
+          "confidence": 0.93009496,
           "text": "5,25"
         },
         {
@@ -2975,7 +2975,7 @@
               }
             ]
           },
-          "confidence": 0.96394783,
+          "confidence": 0.9639477,
           "text": "BETAALD"
         },
         {
@@ -2999,7 +2999,7 @@
               }
             ]
           },
-          "confidence": 0.96394783,
+          "confidence": 0.9639477,
           "text": "MET:"
         },
         {
@@ -3023,7 +3023,7 @@
               }
             ]
           },
-          "confidence": 0.90284985,
+          "confidence": 0.9028499,
           "text": "PINNEN"
         },
         {
@@ -3047,7 +3047,7 @@
               }
             ]
           },
-          "confidence": 0.9351412,
+          "confidence": 0.93514115,
           "text": "5,25"
         },
         {
@@ -3143,7 +3143,7 @@
               }
             ]
           },
-          "confidence": 0.98561794,
+          "confidence": 0.9856179,
           "text": "Terminal"
         },
         {
@@ -3167,7 +3167,7 @@
               }
             ]
           },
-          "confidence": 0.91572803,
+          "confidence": 0.9157279,
           "text": "80156D"
         },
         {
@@ -3191,7 +3191,7 @@
               }
             ]
           },
-          "confidence": 0.99807936,
+          "confidence": 0.9980793,
           "text": "Merchant"
         },
         {
@@ -3215,7 +3215,7 @@
               }
             ]
           },
-          "confidence": 0.98733366,
+          "confidence": 0.98733354,
           "text": "1315641"
         },
         {
@@ -3239,7 +3239,7 @@
               }
             ]
           },
-          "confidence": 0.98733366,
+          "confidence": 0.98733354,
           "text": "Periode"
         },
         {
@@ -3287,7 +3287,7 @@
               }
             ]
           },
-          "confidence": 0.99955434,
+          "confidence": 0.9995543,
           "text": "Transactie"
         },
         {
@@ -3359,7 +3359,7 @@
               }
             ]
           },
-          "confidence": 0.9896738,
+          "confidence": 0.98967373,
           "text": "(A0000000043060)"
         },
         {
@@ -3479,7 +3479,7 @@
               }
             ]
           },
-          "confidence": 0.86423135,
+          "confidence": 0.8642317,
           "text": "0"
         },
         {
@@ -3503,7 +3503,7 @@
               }
             ]
           },
-          "confidence": 0.9569429,
+          "confidence": 0.95694304,
           "text": "BETALING"
         },
         {
@@ -3527,7 +3527,7 @@
               }
             ]
           },
-          "confidence": 0.98767626,
+          "confidence": 0.9876763,
           "text": "Datum"
         },
         {
@@ -3551,7 +3551,7 @@
               }
             ]
           },
-          "confidence": 0.94528294,
+          "confidence": 0.94528306,
           "text": "22/06/2019"
         },
         {
@@ -3575,7 +3575,7 @@
               }
             ]
           },
-          "confidence": 0.94528294,
+          "confidence": 0.94528306,
           "text": "15:16"
         },
         {
@@ -3623,7 +3623,7 @@
               }
             ]
           },
-          "confidence": 0.96415085,
+          "confidence": 0.96415097,
           "text": "XOS125"
         },
         {
@@ -3647,7 +3647,7 @@
               }
             ]
           },
-          "confidence": 0.96415085,
+          "confidence": 0.96415097,
           "text": "Totaal"
         },
         {
@@ -3671,7 +3671,7 @@
               }
             ]
           },
-          "confidence": 0.93625826,
+          "confidence": 0.9362584,
           "text": "5,25"
         },
         {
@@ -3695,7 +3695,7 @@
               }
             ]
           },
-          "confidence": 0.93625826,
+          "confidence": 0.9362584,
           "text": "EUR"
         },
         {
@@ -3719,7 +3719,7 @@
               }
             ]
           },
-          "confidence": 0.94234324,
+          "confidence": 0.9423434,
           "text": "Leesmethode"
         },
         {
@@ -3743,7 +3743,7 @@
               }
             ]
           },
-          "confidence": 0.94234324,
+          "confidence": 0.9423434,
           "text": "NFC"
         },
         {
@@ -3767,7 +3767,7 @@
               }
             ]
           },
-          "confidence": 0.94234324,
+          "confidence": 0.9423434,
           "text": "Chip"
         },
         {
@@ -3791,7 +3791,7 @@
               }
             ]
           },
-          "confidence": 0.9263212,
+          "confidence": 0.92632073,
           "text": "BTW"
         },
         {
@@ -3839,7 +3839,7 @@
               }
             ]
           },
-          "confidence": 0.99484247,
+          "confidence": 0.9948425,
           "text": "EUR"
         },
         {
@@ -3911,7 +3911,7 @@
               }
             ]
           },
-          "confidence": 0.9385998,
+          "confidence": 0.93860006,
           "text": "0.43"
         },
         {
@@ -3935,7 +3935,7 @@
               }
             ]
           },
-          "confidence": 0.9610068,
+          "confidence": 0.96100664,
           "text": "TOTAAL"
         },
         {
@@ -3959,7 +3959,7 @@
               }
             ]
           },
-          "confidence": 0.9589076,
+          "confidence": 0.9589077,
           "text": "4.82"
         },
         {
@@ -3983,7 +3983,7 @@
               }
             ]
           },
-          "confidence": 0.94200915,
+          "confidence": 0.9420092,
           "text": "0.43"
         },
         {
@@ -4055,7 +4055,7 @@
               }
             ]
           },
-          "confidence": 0.88507146,
+          "confidence": 0.8850715,
           "text": "1515"
         },
         {
@@ -4079,7 +4079,7 @@
               }
             ]
           },
-          "confidence": 0.9924705,
+          "confidence": 0.9924704,
           "text": "3"
         },
         {
@@ -4127,7 +4127,7 @@
               }
             ]
           },
-          "confidence": 0.9972586,
+          "confidence": 0.99725854,
           "text": "22"
         },
         {
@@ -4175,7 +4175,7 @@
               }
             ]
           },
-          "confidence": 0.99961007,
+          "confidence": 0.99960995,
           "text": "22-06-2019"
         },
         {
@@ -4223,7 +4223,7 @@
               }
             ]
           },
-          "confidence": 0.9698109,
+          "confidence": 0.96981096,
           "text": "Alles"
         },
         {
@@ -4247,7 +4247,7 @@
               }
             ]
           },
-          "confidence": 0.9698109,
+          "confidence": 0.96981096,
           "text": "voor"
         },
         {
@@ -4271,7 +4271,7 @@
               }
             ]
           },
-          "confidence": 0.9698109,
+          "confidence": 0.96981096,
           "text": "op"
         },
         {
@@ -4295,7 +4295,7 @@
               }
             ]
           },
-          "confidence": 0.9698109,
+          "confidence": 0.96981096,
           "text": "en"
         },
         {

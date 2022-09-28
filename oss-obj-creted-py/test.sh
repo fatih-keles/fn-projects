@@ -11,13 +11,18 @@
 #sudo apt install python3-pip
 #python3 -m pip install oci oci-cli
 
+## create application 
+#oci fn application create --generate-full-command-json-input
+#oci fn application create --generate-param-json-input subnet-ids subnet-ids
+#oci fn application create --display-name "document-processing-application2" --compartment-id "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja" --subnet-ids ["ocid1.subnet.oc1.uk-london-1.aaaaaaaam5hdpn7ncpwvqeqctfnmrpgfixcp7ar7fpoextaa36vn7yre7waq"]
+
 ## deploy application 
 fn deploy --app document-processing-application
 
 ## upload test data
 export _bucket_name=document_process_queue
 export _file_name=analyze-document/ah_receipt.jpg
-export _object_name=tbp-aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja.bin
+export _object_name=tbp-aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja.jpg
 
 oci os object delete --force --bucket-name $_bucket_name --object-name $_object_name
 oci os object put --bucket-name $_bucket_name --file $_file_name --name $_object_name
