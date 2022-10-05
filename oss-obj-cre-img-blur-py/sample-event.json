@@ -1,0 +1,26 @@
+{
+    "cloudEventsVersion": "0.1",
+    "eventID": "XXXXXXXX-15da-aee9-a50a-9abccaa2e5c3",
+    "eventType": "com.oraclecloud.objectstorage.createobject",
+    "source": "objectstorage",
+    "eventTypeVersion": "2.0",
+    "eventTime": "2019-07-10T13:37:11Z",
+    "contentType": "application/json",
+    "extensions": {
+      "compartmentId": "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja"
+    },
+    "data": {
+      "compartmentId": "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja",
+      "compartmentName": "FatihKeles",
+      "resourceName": "us.jpeg",
+      "resourceId": "/n/lrfymfp24jnl/b/auto-blur-images/o/us.jpeg",
+      "availabilityDomain": "all",
+      "additionalDetails": {
+        "eTag": "8162db5b-50d7-4947-a576-4401798ed2fa",
+        "namespace": "lrfymfp24jnl",
+        "archivalState": null,
+        "bucketName": "auto-blur-images",
+        "bucketId": "ocid1.bucket.oc1.uk-london-1.aaaaaaaan3pkqvfyeid3ndlv23msdyc4pxw6akgvlzjdro2gnbnfd2edrpgq"
+      }
+    }
+  }

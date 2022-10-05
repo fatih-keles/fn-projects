@@ -1,0 +1,20 @@
+[
+  {
+    "featureType": "DOCUMENT_CLASSIFICATION",
+    "maxResults": 5
+  },
+  {
+    "featureType": "KEY_VALUE_DETECTION"
+  },
+  {
+    "featureType": "LANGUAGE_CLASSIFICATION",
+    "maxResults": 5
+  },
+  {
+    "featureType": "TABLE_DETECTION"
+  },
+  {
+    "featureType": "TEXT_DETECTION",
+    "generateSearchablePdf": true
+  }
+]

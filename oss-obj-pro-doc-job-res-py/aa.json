@@ -1,0 +1,20 @@
+{
+    "resource_id_hash": "5275fe8ab85fd37fd1ae73b472e421f6",
+    "event_id": "3f7f8a9f-2eef-f81a-2933-b16fcbd52bcb",
+    "event_time": "2022-09-29T21:46:29Z",
+    "compartment_id": "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja",
+    "compartment_name": "FatihKeles",
+    "resource_name": "tbp-gZUiv3sMhpAvVNvtcvPT.jpg",
+    "resource_id": "/n/lrfymfp24jnl/b/documents-process-queue/o/tbp-gZUiv3sMhpAvVNvtcvPT.jpg",
+    "os_namespace": "lrfymfp24jnl",
+    "bucket_name": "documents-process-queue",
+    "bucket_id": "ocid1.bucket.oc1.uk-london-1.aaaaaaaa3aa4bqxmyl3uohnckivyliuz5zvvpf377qqqelrfmofqnzht5j3a",
+    "extracted_text": "Albert Heijn XL\nTRIADE 14 Assen\n0592-314922\nAANTAL\nOMSCHRIJVING PRIJS BEDRAG\nAH BONUS NR.\nxx0012\n1\nAH IBUPROFEN\n1\nAH PARACETAM\n1.74\n1\nSEVEN UP\n1.02\n2,49\n3\nSUBTOTAAL\n5,25\nUW VOORDEEL\n0.00\nwaarvan\nUw Persoonlijke Bonus\n0.00\nTE BETALEN\n5,25\nBETAALD MET:\nPINNEN\n5,25\nPOI: 50078404\nKLANTTICKET\nTerminal\n80156D\nMerchant\n1315641 Periode\n9173\nTransactie\n02303247 Maestro\n(A0000000043060)\nMAESTRO\nKaart xxxxxxxxxxxxxxx6011\nKaartserienummer\n0\nBETALING\nDatum\n22/06/2019 15:16\nAutorisatiecode\nXOS125 Totaal\n5,25 EUR\nLeesmethode NFC Chip\nBTW\nOVER\nEUR\n9%\n4,82\n0.43\nTOTAAL\n4.82\n0.43\n0 Poster\n1515\n3\n191\n22\n15:15\n22-06-2019\nBBQ-tijd!\nAlles voor op en\nbij de BBQ.\n",
+    "document_type": "RECEIPT",
+    "language_code": "ENG",
+    "page_count": 1,
+    "mime_type": "image/jpeg",
+    "processing_job_id": "ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa25df7oo734qj4hlyq62vhi5vmvnijtme6k2hc5xuaupa",
+    "output_file_name": "ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa25df7oo734qj4hlyq62vhi5vmvnijtme6k2hc5xuaupa/lrfymfp24jnl_documents-process-queue_tbp-gZUiv3sMhpAvVNvtcvPT.jpg.json",
+    "searchable_document_name": "ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa25df7oo734qj4hlyq62vhi5vmvnijtme6k2hc5xuaupa/lrfymfp24jnl_documents-process-queue_tbp-gZUiv3sMhpAvVNvtcvPT.jpg_searchable_document.pdf"
+}
