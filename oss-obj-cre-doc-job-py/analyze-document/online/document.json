@@ -1,6 +1,6 @@
 {
   "source": "OBJECT_STORAGE",
   "namespaceName": "lrfymfp24jnl",
-  "bucketName": "documents-process-queue",
+  "bucketName": "ocr-documents",
   "objectName": "ah_receipt.jpg"
 }

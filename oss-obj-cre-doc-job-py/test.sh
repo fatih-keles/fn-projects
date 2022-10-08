@@ -24,7 +24,7 @@ fn config function document-processing-application oss-obj-cre-doc-job-py proces
 
 
 ## upload test data
-export _input_bucket_name=documents-process-queue
+export _input_bucket_name=ocr-documents
 export _input_file_name=analyze-document/online/ah_receipt.jpg
 export _input_object_name=tbp-`tr -dc A-Za-z0-9 </dev/urandom | head -c 20 ; echo ''`.jpg
 
@@ -56,8 +56,8 @@ oci os object put --bucket-name $_input_bucket_name --file $_input_file_name --n
 #cat out.json | jq '.pages[].words[].text'
 #cat out.json | jq '.pages[].lines[].text'
 
-#oci os object list --bucket-name documents-process-queue | jq .data[].name
-#oci os object delete --force --bucket-name documents-process-queue --object-name 
+#oci os object list --bucket-name ocr-documents | jq .data[].name
+#oci os object delete --force --bucket-name ocr-documents --object-name 
 
 ## oci db autonomous-database get --autonomous-database-id ocid1.autonomousdatabase.oc1.uk-london-1.anwgiljrdiwdpaqa2ra3d6uhhyvxxbu6briodswvgkxjhvi6zvxqsphrayna
 ## oci db autonomous-database start --autonomous-database-id ocid1.autonomousdatabase.oc1.uk-london-1.anwgiljrdiwdpaqa2ra3d6uhhyvxxbu6briodswvgkxjhvi6zvxqsphrayna

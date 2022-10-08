@@ -5,6 +5,7 @@ import logging
 import requests
 import uuid
 import hashlib
+import sys, traceback
 
 from fdk import response
 
@@ -224,7 +225,7 @@ def handler(ctx, data: io.BytesIO = None):
 
     return response.Response(
         ctx, response_data=json.dumps(
-            {"message": "Hello {0}".format(resourceName)}),
+            {"status_code":"SUCCESS", "message": "Successfuly processed {0}".format(resourceName)}),
         headers={"Content-Type": "application/json"}
     )
 
