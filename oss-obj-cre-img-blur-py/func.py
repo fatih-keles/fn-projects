@@ -92,7 +92,7 @@ def blur_faces(signer, namespace, bucket_name, object_name):
         faces = face_cascade.detectMultiScale(image_gray, scaleFactor=1.1, minNeighbors=5)
         # print("{0} {1}".format(face_cascade, faces))
         for x, y, w, h in faces:
-            #cv2.rectangle(image_processed, (x, y), (x+w, y+h), face_cascades_colors[i], 2);
+            ##cv2.rectangle(image_processed, (x, y), (x+w, y+h), face_cascades_colors[i], 2);
             face_rectangle = image_processed[y:y+h, x:x+w]
             blurred_face = cv2.GaussianBlur(face_rectangle, (kernel_width, kernel_height), 0)
             image_processed[y:y+h, x:x+w] = blurred_face
