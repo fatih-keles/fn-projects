@@ -8,6 +8,18 @@ import cv2
 import sys, traceback
 import numpy as np
 import sys
+import imutils
+
+import io
+# import json
+import logging
+import oci
+# import uuid
+import cv2
+# import os
+import sys, traceback
+import numpy as np
+import sys
 
 # detected_faces = face_cascade.detectMultiScale(image=image, scaleFactor=1.3, minNeighbors=4)
 # draw_found_faces(detected_faces, original_image, (0, 255, 0)) # RGB - green
@@ -61,15 +73,11 @@ kernel_sharpen = np.array([[0, -1, 0],
 
 # face cascades 
 face_cascades = [
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'),
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml'),
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt2.xml'),
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt_tree.xml'),
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_profileface.xml'),
-    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml')
+    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_russian_plate_number.xml'),
+    cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_licence_plate_rus_16stages.xml'),
 ]
 face_cascades_colors = [
-    (255, 0, 0),(0, 255, 0),(0, 0, 255),(0, 0, 0),(255, 255, 255)
+    (255, 0, 0),(0, 255, 0),(0, 0, 255),(0, 0, 0),(255, 255, 255),
 ]
 
 # eyes cascades 
@@ -91,7 +99,7 @@ for face_cascade in face_cascades:
     faces = face_cascade.detectMultiScale(image_gray, scaleFactor=1.1, minNeighbors=5)
     print("{0} {1}".format(face_cascade, faces))
     for x, y, w, h in faces:
-        #cv2.rectangle(image_processed, (x, y), (x+w, y+h), face_cascades_colors[i], 2);
+        cv2.rectangle(image_processed, (x, y), (x+w, y+h), face_cascades_colors[i], 2);
         
         face_rectangle = image_processed[y:y+h, x:x+w]
         blurred_face = cv2.GaussianBlur(face_rectangle, (kernel_width, kernel_height), 0)

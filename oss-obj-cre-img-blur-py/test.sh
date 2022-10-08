@@ -6,7 +6,7 @@ fn config function document-processing-application oss-obj-cre-img-blur-py log-l
 ##fn config function document-processing-application oss-obj-pro-doc-job-res-py processed-bucket "documents-processed"
 
 export _input_bucket_name=auto-blur-images
-export _input_file_name=us.jpeg
+export _input_file_name=sample-images/us.jpeg
 export _input_object_name=us.jpeg
 
 oci os object list --bucket-name $_input_bucket_name | jq -r '.data[] | "\(.name)" '

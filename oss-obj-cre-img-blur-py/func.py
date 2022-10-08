@@ -71,14 +71,16 @@ def blur_faces(signer, namespace, bucket_name, object_name):
     kernel_width = (w//30) | 1
     kernel_height = (h//30) | 1
 
-    # face cascades 
+    # face and license plate cascades 
     face_cascades = [
         cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml'),
         cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt.xml'),
         cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt2.xml'),
         cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_alt_tree.xml'),
         cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_profileface.xml'),
-        cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml')
+        cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalcatface.xml'),
+        cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_russian_plate_number.xml'),
+        cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_licence_plate_rus_16stages.xml')
     ]
     face_cascades_colors = [
         (255, 0, 0),(0, 255, 0),(0, 0, 255),(0, 0, 0),(255, 255, 255)

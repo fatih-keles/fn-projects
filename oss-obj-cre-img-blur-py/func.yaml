@@ -1,6 +1,6 @@
 schema_version: 20180708
 name: oss-obj-cre-img-blur-py
-version: 0.0.45
+version: 0.0.47
 runtime: docker
 build_image: fnproject/python:3.9-dev
 run_image: fnproject/python:3.9
