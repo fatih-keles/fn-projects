@@ -1,5 +1,5 @@
 # Real life Funtions (Fn) use cases
-![Save Time](./resources/save-time-1.jpg)
+![Save Time](./resources/speed-1.jpg)
 
 ## Purpose
 Collection of useful FN samples that can be applied to real life scenarios.
@@ -37,7 +37,7 @@ We will provide the functionality in two steps.
 [^ back](#purpose)
 
 ## Auto Blur Images
-![Blur Images](./resources/FN-Image-Blur.jpg)
+![Blur Images](./resources/seinfeld-3.jpg)
 We want to blur faces and number plates when images are uploaded to an object storage bucket. For this purpose bucket will emit an event which will trigger a function and the function will blur the faces and number plates using [OpenCv](https://opencv.org/) library. In order to use a third party library function uses a custom Dockerfile. Click [here](./oss-obj-cre-img-blur-py/Readme.md) for details.
 
 [^ back](#purpose)

@@ -44,76 +44,76 @@ echo
 pause 'Starting Demo!'
 
 
-clear
-echo "############################################## 1. delete folder test-data ####################################################"
-i=0
-test_files=`ls sample-images-blurred/*.jpg sample-images-blurred/*.jpeg sample-images-blurred/*.tiff sample-images-blurred/*.png`
-for eachfile in $test_files
-do
-   let i=i+1
-   if [ "$dry_run" = false ] ; then
-      # echo 'Deleting' $eachfile
-      rm $eachfile
-   fi
-done
-echo 
-echo $i 'files deleted'
-pause
+# clear
+# echo "############################################## 1. delete folder test-data ####################################################"
+# i=0
+# test_files=`ls sample-images-blurred/*.jpg sample-images-blurred/*.jpeg sample-images-blurred/*.tiff sample-images-blurred/*.png`
+# for eachfile in $test_files
+# do
+#    let i=i+1
+#    if [ "$dry_run" = false ] ; then
+#       # echo 'Deleting' $eachfile
+#       rm $eachfile
+#    fi
+# done
+# echo 
+# echo $i 'files deleted'
+# pause
 
-clear
-echo "############################################## 2. delete object storage test-data ##############################################"
-i=0
-os_list=`oci os object list --bucket-name $_input_bucket_name | jq -r '.data[].name'`
-for eachfile in $os_list
-do
-   let i=i+1
-   echo 'Deleting object' $eachfile
-   if [ "$dry_run" = false ] ; then
-      oci os object delete --force --bucket-name $_input_bucket_name --object-name $eachfile
-   fi
-done
-echo 
-echo $i 'objects deleted'
-pause
+# clear
+# echo "############################################## 2. delete object storage test-data ##############################################"
+# i=0
+# os_list=`oci os object list --bucket-name $_input_bucket_name | jq -r '.data[].name'`
+# for eachfile in $os_list
+# do
+#    let i=i+1
+#    echo 'Deleting object' $eachfile
+#    if [ "$dry_run" = false ] ; then
+#       oci os object delete --force --bucket-name $_input_bucket_name --object-name $eachfile
+#    fi
+# done
+# echo 
+# echo $i 'objects deleted'
+# pause
 
-clear
-echo "############################################## 3. upload object storage test-data ###############################################"
-i=0
-current_dir=`pwd`
-cd sample-images
-test_files=`ls *.jpg *.jpeg *.tiff *.png`
-for eachfile in $test_files
-do
-   let i=i+1
-   echo 'Uploading' $eachfile
-   if [ "$dry_run" = false ] ; then
-      oci os object put --bucket-name $_input_bucket_name --file $eachfile --name $eachfile
-   fi
-done
-echo 
-echo $i 'files uploaded'
-cd $current_dir
-pause
+# clear
+# echo "############################################## 3. upload object storage test-data ###############################################"
+# i=0
+# current_dir=`pwd`
+# cd sample-images
+# test_files=`ls *.jpg *.jpeg *.tiff *.png`
+# for eachfile in $test_files
+# do
+#    let i=i+1
+#    echo 'Uploading' $eachfile
+#    if [ "$dry_run" = false ] ; then
+#       oci os object put --bucket-name $_input_bucket_name --file $eachfile --name $eachfile
+#    fi
+# done
+# echo 
+# echo $i 'files uploaded'
+# cd $current_dir
+# pause
 
-clear
-pause "Wait for Events service to invoke Functions"
-##time_start=date "+%Y-%m-%d %H:%M%z"
-##time_end=date --date='5 minutes' "+%Y-%m-%d %H:%M%z"
-##oci logging-search search-logs --time-start $time_start --time-end $time_end --search-query 'search "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja/ocid1.loggroup.oc1.uk-london-1.amaaaaaadiwdpaqapxfulqbockvfnrblmeusb3jeiolicbx5ehl3l4gz3mcq" | sort by datetime desc'
+# clear
+# pause "Wait for Events service to invoke Functions"
+# ##time_start=date "+%Y-%m-%d %H:%M%z"
+# ##time_end=date --date='5 minutes' "+%Y-%m-%d %H:%M%z"
+# ##oci logging-search search-logs --time-start $time_start --time-end $time_end --search-query 'search "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja/ocid1.loggroup.oc1.uk-london-1.amaaaaaadiwdpaqapxfulqbockvfnrblmeusb3jeiolicbx5ehl3l4gz3mcq" | sort by datetime desc'
 
-while :
-do
-   clear
-   echo "############################################## 4. check object storage test-data #################################################"
-   # query_object_storage 
-   oci os object list --bucket-name $_input_bucket_name | jq -r '.data[] | "\(.name) \(."'"time-created"'") \(."'"time-modified"'")" ' | column -t
-   read -r -p "Press r to Re-Query x to Exit Loop..." c
-   case $c in
-      r) echo "";;
-      x) break;;
-		*) Pause "Press r or x"
-   esac
-done
+# while :
+# do
+#    clear
+#    echo "############################################## 4. check object storage test-data #################################################"
+#    # query_object_storage 
+#    oci os object list --bucket-name $_input_bucket_name | jq -r '.data[] | "\(.name) \(."'"time-created"'") \(."'"time-modified"'")" ' | column -t
+#    read -r -p "Press r to Re-Query x to Exit Loop..." c
+#    case $c in
+#       r) echo "";;
+#       x) break;;
+# 		*) Pause "Press r or x"
+#    esac
+# done
 
 clear
 echo "############################################## 5. download object storage test-data ##############################################"
