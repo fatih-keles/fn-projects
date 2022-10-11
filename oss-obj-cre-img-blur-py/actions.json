@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "actionType": "FAAS",
+      "description": "Blur Images",
+      "functionId": "ocid1.fnfunc.oc1.uk-london-1.aaaaaaaatsstw24upqc5mmxdcjutidqbkzep4rdux56xeqhnk4lnaxuxf4nq",
+      "isEnabled": true
+    }
+  ]
+}
