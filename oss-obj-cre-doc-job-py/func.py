@@ -21,7 +21,7 @@ def persist_data(api_url, json_data, headers):
     if status_code not in [200, 201]: ##200: Updated, 201: Created
         raise Exception("Cannot persist object {0} on bucket {1}, status code {2} and reason {3}".format(json_data["resource_name"], json_data["bucket_name"], status_code, res.reason))
 
-def analyze_document_bulk(config, signer, namespace, bucket_name, object_name, prefix):
+def analyze_document_bulk(config, signer, namespace, bucket_name, object_name, output_bucket, prefix):
     ai_vision_client = oci.ai_vision.AIServiceVisionClient(config=config, signer=signer)
     resp = ai_vision_client.create_document_job(
         create_document_job_details=oci.ai_vision.models.CreateDocumentJobDetails(
@@ -35,7 +35,7 @@ def analyze_document_bulk(config, signer, namespace, bucket_name, object_name, p
                 oci.ai_vision.models.DocumentLanguageClassificationFeature(max_results=5),
                 oci.ai_vision.models.DocumentTextDetectionFeature(generate_searchable_pdf=True)
             ],
-            output_location=oci.ai_vision.models.OutputLocation(bucket_name=bucket_name, namespace_name=namespace, prefix=prefix)
+            output_location=oci.ai_vision.models.OutputLocation(bucket_name=output_bucket, namespace_name=namespace, prefix=prefix)
         )
     )
     document_job_id = resp.data.id
@@ -139,12 +139,14 @@ def handler(ctx, data: io.BytesIO = None):
     signer = oci.auth.signers.get_resource_principals_signer()
     config = ctx.Config()
     eventID = eventTime = compartmentId = compartmentName = resourceName = resourceId = namespace = bucketName = bucketId = api_url = ""
+    ai_vision_output_bucket = ""
     ## Get Config
     try:
         #input_bucket = config["input-bucket"]
         #processed_bucket = config["processed-bucket"]
         ## api_url = "https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oraclecloudapps.com/ords/admin/os_text_extracts/"
         api_url = config["ords-base-url"]
+        ai_vision_output_bucket = config["ai-vision-output-bucket"]
         #schema = config["db-schema"]
         #dbuser = config["db-user"]
         #dbpwd = config["dbpwd-cipher"]
@@ -197,7 +199,7 @@ def handler(ctx, data: io.BytesIO = None):
         move_object(signer, namespace=namespace, source_bucket=bucketName, destination_bucket=processed_bucket, object_name=resourceName)
 
     logging.getLogger().info("Create document analyzing job")
-    ai_result = analyze_document_bulk(config, signer, namespace, bucket_name=bucketName, object_name=resourceName, prefix="ai-vision-document")
+    ai_result = analyze_document_bulk(config, signer, namespace, bucket_name=bucketName, object_name=resourceName, output_bucket= ai_vision_output_bucket, prefix="ai-vision-document")
 
     logging.getLogger().info("Persisting data")
     json_data = {
@@ -225,7 +227,7 @@ def handler(ctx, data: io.BytesIO = None):
 
     return response.Response(
         ctx, response_data=json.dumps(
-            {"status_code":"SUCCESS", "message": "Successfuly processed {0}".format(resourceName)}),
+            {"status_code":"SUCCESS", "message": "Successfuly processed image {0}".format(resourceName)}),
         headers={"Content-Type": "application/json"}
     )
 

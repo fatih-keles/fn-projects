@@ -2,7 +2,7 @@
   "objectLocations": [
     {
       "namespaceName": "lrfymfp24jnl",
-      "bucketName": "documents-process-queue",
+      "bucketName": "ocr-documents",
       "objectName": "Binder8.pdf"
     }
   ],

@@ -12,14 +12,14 @@
     "data": {
       "compartmentId": "ocid1.compartment.oc1..aaaaaaaapbatjdpgcbfpvwxmfkav5ijagbf7aepp5ln7xxlpl5ba347xukja",
       "compartmentName": "FatihKeles",
-      "resourceName": "ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa6xxhawats7c4n6ujx7n6tcriyriv2kaur46aala6hgva/lrfymfp24jnl_documents-process-queue_tbp-dNx9lSKOi4nQCKXNwS3f.jpg.json",
-      "resourceId": "/n/lrfymfp24jnl/b/documents-process-queue/o/ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaaqgjqr2gutvi6576a4apvheefvwefl7u4cyvqtl6ocsfa/lrfymfp24jnl_documents-process-queue_ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaamerxfcjfonddc6qf33z5v2ubiffaws3lyhktm3zbtypq/lrfymfp24jnl_documents-process-queue_tbp-fUJ1ph0rBU1k3MQjoixv.jpg_searchable_document.pdf.json",
+      "resourceName": "ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa6s76msgxeqlyfx7zcjrssxx44ymhyvvsmua5une2mvcq/lrfymfp24jnl_ocr-documents_Binder1.pdf_searchable_document.pdf",
+      "resourceId": "/n/lrfymfp24jnl/b/documents-process-queue/o/ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa6s76msgxeqlyfx7zcjrssxx44ymhyvvsmua5une2mvcq/lrfymfp24jnl_ocr-documents_Binder1.pdf_searchable_document.pdf",
       "availabilityDomain": "all",
       "additionalDetails": {
         "eTag": "8162db5b-50d7-4947-a576-4401798ed2fa",
         "namespace": "lrfymfp24jnl",
         "archivalState": null,
-        "bucketName": "documents-process-queue",
+        "bucketName": "ocr-documents",
         "bucketId": "ocid1.bucket.oc1.uk-london-1.aaaaaaaa3aa4bqxmyl3uohnckivyliuz5zvvpf377qqqelrfmofqnzht5j3a"
       }
     }

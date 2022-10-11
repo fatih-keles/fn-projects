@@ -21,6 +21,7 @@ fn deploy --app document-processing-application
 fn config function document-processing-application oss-obj-cre-doc-job-py ords-base-url "https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oraclecloudapps.com/ords/admin/os_text_extracts/"
 fn config function document-processing-application oss-obj-cre-doc-job-py log-level "DEBUG"
 fn config function document-processing-application oss-obj-cre-doc-job-py processed-bucket "ocr-extracts"
+fn config function document-processing-application oss-obj-cre-doc-job-py ai-vision-output-bucket "ocr-documents-temp"
 
 
 ## upload test data
