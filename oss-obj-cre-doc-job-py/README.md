@@ -208,7 +208,7 @@ curl --location "https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oracle
 ## 7. Test what we have done so far 
 You can check `test.sh` and `run-demo.sh` scripts for testing and running using command line. Or you can simply upload files into object storage bucket and monitor events using logging service.
 
-As you can see below, once the vision service is done with the receipt image we uploaded, we have a json file listing `coordinates of each word`, line which can be used for `highligting`. And also we have a `searchable pdf` file generated from the image. 
+As you can see below, once the vision service is done with the receipt image we uploaded, we have a json file listing `coordinates of each word`, line which can be used for `highlighting`. And also we have a `searchable pdf` file generated from the image. 
 ![ah-receipt-ocr](./resources/ah-receipt-ocr.JPG)
 
 **Tip**: Place jpg files under `analyze-documents/bulk` folder that needs to be converted to a searchable pdf and run `run-demo.sh` file. The script will delete everything from previuos run and will start a new demo by uploading new files. You can edit and comment out the steps as you like.

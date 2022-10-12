@@ -5,7 +5,7 @@ This is the second part of processing files uploaded to an object storage bucket
 **`Steps 5-10`** will take place in part 2 of the implementation.
 
 ## Prerequsites
-1. Same as [Part 1](../oss-obj-cre-doc-job-py/) 
+1. Same as [Part 1](../oss-obj-cre-doc-job-py/README.md#Prerequsites) 
 
 ## Steps
 1. [Create Buckets](#1-create-buckets)
@@ -147,7 +147,7 @@ tbp-ah_receipt.jpg   RECEIPT               1 image/jpeg   Albert Heijn XL
 ```
 
 ### b. ORDS Query 
-We can simply search over rest api, just append query string `?q={"extracted_text":{"$like":"%IBUPRO%"}}` in your url. 
+We can simply search over rest api, we just need to append query string `?q={"extracted_text":{"$like":"%IBUPRO%"}}` in our url. 
 ```bash
 curl -g --location 'https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oraclecloudapps.com/ords/admin/os_text_extracts/?q={"extracted_text":{"$like":"%IBUPRO%"}}'  | jq -r '.items[] | "\(.resource_name) \(.document_type) \(.page_count) \(.mime_type)" ' | column -t
 
