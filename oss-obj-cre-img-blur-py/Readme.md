@@ -14,6 +14,7 @@ Let's assume we want to blur faces and license number plates when the images are
 
 ##  1. Create Bucket
 Create a bucket that emits event.
+
 ![create-bucket-console](./resources/create-bucket.JPG)
 
 ```bash 
@@ -24,7 +25,9 @@ oci os bucket create --compartment-id $compartment_id --name auto-blur-images --
 
 ## 2. Create Application 
 Create an application with a private subnet connectivity. 
+
 ![create-application-console](./resources/create-application.JPG)
+
 ```bash
 oci fn application create --compartment-id $compartment_id --display-name document-processing-application --subnet-ids '["ocid1.subnet.oc1.uk-london-1.aaaaaaaarsfbhp6r6wmgvjrt24344q999999999999999999999999999999"]'
 ```

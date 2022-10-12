@@ -15,16 +15,19 @@ We have a bucket that stores our documents (image and pdf files). Once a new fil
 4. [Create Event Rule](#4-create-event-rule)
 5. [Enable Logs](#5-enable-logs)
 6. [Create Table and Enable ORDS](#6-create-table-and-enable-ords)
-7. [Run Demo](#7-run-demo)
+7. [Test what we have done so far](#7-test-what-we-have-done-so-far)
 
 ##  1. Create Buckets
 Create a bucket that holds documents and emits an event when a file is uploaded.
+
 ![create-bucket-console](./resources/create-bucket.JPG)
+
 ```bash 
 oci os bucket create --compartment-id $compartment_id --name ocr-documents --object-events-enabled true
 ```
 
 Create another bucket which will hold the output of Vision service and emit an event to trigger another function which is covered in [Part 2](../oss-obj-pro-doc-job-res-py/README.md).
+
 ```bash 
 oci os bucket create --compartment-id $compartment_id --name ocr-documents-temp --object-events-enabled true
 ```
@@ -33,7 +36,9 @@ oci os bucket create --compartment-id $compartment_id --name ocr-documents-temp 
 
 ## 2. Create Application 
 Create an application with a private subnet connectivity. 
+
 ![create-application-console](./resources/create-application.JPG)
+
 ```bash
 oci fn application create --compartment-id $compartment_id --display-name document-processing-application --subnet-ids '["ocid1.subnet.oc1.uk-london-1.aaaaaaaarsfbhp6r6wmgvjrt24344q999999999999999999999999999999"]'
 ```
@@ -52,7 +57,7 @@ fn init --runtime python oss-obj-cre-doc-job-py
 fn --verbose deploy --app document-processing-application
 ```
 
-You can clone the clone the repository and edit the code as you like. A few things to mention.
+You can clone the repository and edit the code as you like. A few things to mention.
 
 - You can pass configuration parameters to functions. Notice I am passing ORDS URL and object storage bucket name for vision service outputs.
 ```bash 
@@ -87,12 +92,12 @@ MATCH event WHERE (
             *.jpg,
             *.png,
             *.tiff,
-			*.pdf,
+            *.pdf,
             *.JPEG,
             *.JPG,
             *.PNG,
             *.TIFF,
-			*.PDF
+            *.PDF
         )
     )
 )

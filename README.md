@@ -33,17 +33,19 @@ Main OCI components utilized
 We will provide the functionality in two steps.
 1. Object storage will emit an event when an image or pdf file is uploaded. That event will trigger our first function which will submit an ai vision document job to process files asynchronously. 
 
-[Part:1 - Submit a Vision document job when a document is uploaded to object storage bucket](./oss-obj-cre-doc-job-py/README.md)
+Click :point_right: [Part:1 - Submit a Vision document job when a document is uploaded to object storage bucket](./oss-obj-cre-doc-job-py/README.md) for complete steps.
 
 2. Vision service will process files and create output in a temporary bucket. Temporary bucket will emit an event which will trigger our second function. This function will read json output (extracted text) and update a database over ORDS, then move searchable pdf file to final location.
 
-[Part:2 - Process output of Vision document job and organize new information](./oss-obj-pro-doc-job-res-py/README.md)
+Click :point_right: [Part:2 - Process output of Vision document job and organize new information](./oss-obj-pro-doc-job-res-py/README.md) for complete steps.
 
 [^ back](#purpose)
 
 ## Auto Blur Images
 ![Blur Images](./resources/seinfeld-3.jpg)
-We want to blur faces and number plates when images are uploaded to an object storage bucket. For this purpose bucket will emit an event which will trigger a function and the function will blur the faces and number plates using [OpenCv](https://opencv.org/) library. In order to use a third party library function uses a custom Dockerfile. Click [here](./oss-obj-cre-img-blur-py/Readme.md) for details.
+We want to blur faces and number plates when images are uploaded to an object storage bucket. For this purpose bucket will emit an event which will trigger a function and the function will blur the faces and number plates using [OpenCv](https://opencv.org/) library. In order to use a third party library function uses a custom Dockerfile. 
+
+Click :point_right: [Auto Blur Images](./oss-obj-cre-img-blur-py/Readme.md) for complete steps.
 
 [^ back](#purpose)
 
