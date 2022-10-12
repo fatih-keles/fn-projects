@@ -1,0 +1,10 @@
+{
+  "actions": [
+    {
+      "actionType": "FAAS",
+      "description": "Submit OCR Job",
+      "functionId": "ocid1.fnfunc.oc1.uk-london-1.aaaaaaaaq5jztq4ffg7jnnzcootoawq2t2fl7iiucmgu6zxzmkvzprvetokq",
+      "isEnabled": true
+    }
+  ]
+}

@@ -1,334 +1,325 @@
-# 30 Minutes Workshop: Develop a Movie Application with APEX
-*Control click the below screenshot to watch the entire demo video on* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>. *You will find videos which display only the related parts for each section below*
-[![Watch all parts](./resources/banner-all-at-once.gif)](https://youtu.be/XRMmDQ28piw)
+# Part:1 - Submit a Vision document job when a document is uploaded to object storage bucket
+![FN-OCR.jpg](./resources/FN-OCR.jpg)
+We have a bucket that stores our documents (image and pdf files). Once a new file is created, bucket will emit an event. If the event matches our event rule than a function will be triggered. This function will submit a vision document job which is going to do the actual work.
 
-## Purpose
-You will develop a web application with a dashboard, calendar and faceted search page in 30 minutes. 
-
-The original demonstration belongs to my colleague [Shakeeb Rahman](https://www.linkedin.com/in/shakeebrahman/) and you can watch it on [YouTube](https://youtu.be/VlYa5xkF_kE "Low Code App Dev with Oracle APEX: Building a Simple Movie App") (which is really impressive) and 
-find more on **Oracle Application Express** [YouTube Channel](https://www.youtube.com/channel/UCEpIXFjcQIztReQNLymvYrQ).
+**`Steps 1-5`** will take place in part 1 of the implementation.
 
 ## Prerequsites
-1. Create Free Oracle Cloud account, start [here](https://www.oracle.com/cloud/free/ "Oracle Free Tier"). It is totaly free, takes less than two minutes. Credit card information is required to verify your identity, no charges will be incurred. You will get
-   * 2 Oracle Autonomous Databases
-   * 2 Virtual Machines 
-for free for life as long as you use them.
-
-2. Download [this csv file](./resources/tmdb-movies_smaller.csv "CSV file") which I downloaded from [The Movie Database](www.themoviedb.org).
+1. You will need one ORDS endpoint available. You can use [Autonomous Database](https://docs.oracle.com/en-us/iaas/autonomous-database-shared/doc/autonomous-quickstart.html), which comes with a managed ORDS feature or you can setup your own with any Oracle database edition. [Here](https://www.youtube.com/watch?v=ZNO4-6-scSE) is a quick demo recorded by a friend of mine on how to do it easily. 
+2. Create a VCN using [wizard](https://docs.oracle.com/en-us/iaas/Content/Network/Tasks/quickstartnetworking.htm), we will deploy our function into a subnet. 
 
 ## Steps
-1. [Create Autonoumous Database](#1-create-autonoumous-database-2-min)
-2. [Create APEX Workspace](#2-create-apex-workspace-40-sec)
-3. [Load CSV File](#3-load-csv-file-1-min) 
-4. [Create Application](#4-create-application-1-min) 
-5. [Run Application for the First Time](#5-run-application-for-the-first-time-1-min) 
-6. [Calendar Page](#6-calendar-page-1-min)
-7. [Dashboard](#7-dashboard-6-min)
-	- [Chart Genres](#71-chart-genres-1-min)
-	- [Chart Runtime](#72-chart-runtime-1-min)
-	- [Chart ROI](#73-chart-roi-2-min)
-	- [Chart Major Producers](#74-chart-major-producers-2-min)
-8. [Report Page](#8-report-page-5-min)
-9. [Faceted Search Page](#9-faceted-search-page-8-min)
+1. [Create Buckets](#1-create-buckets)
+2. [Create Application](#2-create-application)
+3. [Create Function](#3-create-function)
+4. [Create Event Rule](#4-create-event-rule)
+5. [Enable Logs](#5-enable-logs)
+6. [Create Table and Enable ORDS](#6-create-table-and-enable-ords)
+7. [Run Demo](#7-run-demo)
 
-##  1. Create Autonoumous Database (2 min)
-Create your autonomous database in your cloud account. The interface is very intuitive. Follow screen instructions. If you need help press help button on the very same screen.
-
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Create Autonoumous Database](./resources/create-autonomous-database.jpg)](https://youtu.be/_cdAjzawbU0)
-
-[^ back](#steps)
-
-##  2. Create APEX Workspace (40 sec)
-Login with **ADMIN** user and create an APEX workspace. By doing this you will also be creating a database schema. 
-
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Create APEX Workspace](./resources/create-apex-workspace.jpg)](https://youtu.be/wgCU4hkMtvw)
-
-[^ back](#steps)
-
-##  3. Load CSV File (1 min)
-Logout from *Administration Services* and login using *Workspace Sign-In*
-
-Login with **DEMO** user and load [CSV file](./resources/tmdb-movies_smaller.csv "CSV file")
-
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Create APEX Workspace](./resources/load-csv-file.jpg)](https://youtu.be/EwXDxuooNug)
-
-[^ back](#steps)
-
-##  4. Create Application (1 min)
-After loading csv file data into **movies** table, create application. APEX analyzes data and suggests you the best possible page options you may want to create. In this example we will have
- - Home Page (Blank)
- - Dashboard Page (With charts offered by APEX)
- - Movies Search (A faceted search page new in APEX 19.2)
- - Movies Report (A tabular report page which we will turn into fancy cards)
- 
-Most of the work will be done by automatically by APEX. We will interfere very little. 
- - First inspect **Dashboard** page by clicking **Edit** and see what charts are suggested by APEX by just looking at your data and learning about it. We are going to change suggested charts with the ones that display our information of interest. 
- - Then edit the **Faceted Search Page**, change page type from reports to cards. Set the following 
- ```
- Card Title: Title
- Description Column: Tagline
- Additional Text Column: Overview
- ```
- - Check **Movies Report** page
- - There is another page called **Calendar**
- - Click **Check All** Features
- - Create application 
- 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Create Application](./resources/create-application.jpg)](https://youtu.be/q2Fm9OvrQEs)
-
-[^ back](#steps)
- 
-##  5. Run Application for the First Time (1 min)
-Now lets run the application for the first time and see what APEX has done for us. 
- - Login to application with **DEMO** user
- - Navigate to **Dashboard** and inspect the charts suggested by APEX.
- - Navigate to **Movies Search** page and see the faceted search and card tiles.
- - See **Movies Report** page, which looks like a regualar tabular report page.
- - Inspect **Calendar** page see how the movies are placed on calendar according to release date.
- 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Run Application First Time](./resources/run-application-first-time.jpg)](https://youtu.be/Smrt0Qtnadc)
-
-[^ back](#steps)
- 
-##  6. Calendar Page (1 min)
-Lets start with an easy fix, current calendar page doesn't display movie titles. 
- - Navigate to Calendar page
- - Click **Quick Edit** on the developer toolbar at the bottom of the page and then click anywhere on the calendar. This will take you to calendar page in the editor.
- - Hide empty positions on the layout menu, this will simplify the page layout.
- - Select Calendar > Attributes under Content Body on the left panel, then change settings on the right panel
-``` 
-Display Column: TITLE 
+##  1. Create Buckets
+Create a bucket that holds documents and emits an event when a file is uploaded.
+![create-bucket-console](./resources/create-bucket.JPG)
+```bash 
+oci os bucket create --compartment-id $compartment_id --name ocr-documents --object-events-enabled true
 ```
- - Save and run the page to see what changed
 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Edit Calendar Page](./resources/calendar-page.jpg)](https://youtu.be/WpJa9wHkcF4)
+Create another bucket which will hold the output of Vision service and emit an event to trigger another function which is covered in [Part 2](../oss-obj-pro-doc-job-res-py/README.md).
+```bash 
+oci os bucket create --compartment-id $compartment_id --name ocr-documents-temp --object-events-enabled true
+```
 
 [^ back](#steps)
 
-##  7. Dashboard (6 min)
-APEX suggested a good start for our dashboard, we will improve the page for finding answers to the following questions.
- 1. What are the most popular genres?
- 2. What is the average movie length?
- 3. Which type of movies has a better return on investment?
- 4. Who are the major producers, how are they compared?
+## 2. Create Application 
+Create an application with a private subnet connectivity. 
+![create-application-console](./resources/create-application.JPG)
+```bash
+oci fn application create --compartment-id $compartment_id --display-name document-processing-application --subnet-ids '["ocid1.subnet.oc1.uk-london-1.aaaaaaaarsfbhp6r6wmgvjrt24344q999999999999999999999999999999"]'
+```
 
-Use the application builder and edit dashboard with page designer.
+[^ back](#steps)
 
-#### 7.1. Chart Genres (1 min)
-We want to see which genre is most popular by comparing number of movies with a nice pie chart. 
-  - Use this sql for series data source
+## 3. Create Function
+Assuming that you have setup your functions development environment as described [here](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsquickstartguidestop.htm), now we create a function following the same [steps](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionscreatingfirst.htm). 
+
+- Create function with python runtime. This will create a folder named *oss-obj-cre-doc-job-py* which is also the name of the function
+```bash
+fn init --runtime python oss-obj-cre-doc-job-py
+```
+- Deploy function under recently created application
+```bash
+fn --verbose deploy --app document-processing-application
+```
+
+You can clone the clone the repository and edit the code as you like. A few things to mention.
+
+- You can pass configuration parameters to functions. Notice I am passing ORDS URL and object storage bucket name for vision service outputs.
+```bash 
+fn config function document-processing-application oss-obj-cre-doc-job-py ords-base-url "https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oraclecloudapps.com/ords/admin/os_text_extracts/"
+fn config function document-processing-application oss-obj-cre-doc-job-py log-level "DEBUG"
+fn config function document-processing-application oss-obj-cre-doc-job-py processed-bucket "ocr-extracts"
+fn config function document-processing-application oss-obj-cre-doc-job-py ai-vision-output-bucket "ocr-documents-temp"
+```
+- Once you have `oci cli` running you can check `test.sh` and `run-demo.sh` scripts to deploy and test the function using command line.
+
+[^ back](#steps)
+
+## 4. Create Event Rule
+Create an event rule to filter object creation with certain attributes. 
+![create-event-rule](./resources/create-rule.JPG)
+
+Event will match 
 ```sql
-SELECT genre, count(*) value
-  FROM movies
- GROUP BY genre
- ORDER BY 2 DESC
-```
- - Make these changes on the first chart
-```
-Region.Title: Genres
-Region.Attributes.Chart Type: Pie
-Region.Series.[0].Column Mapping.Label: GENRE
-Region.Series.[0].Column Mapping.Value: VALUE
-Region.Series.[0].Label.Show: Yes
-Region.Series.[0].Label.Display As: Label
+MATCH event WHERE (
+    eventType EQUALS ANY OF (
+        com.oraclecloud.objectstorage.createobject
+    )
+    AND (
+        compartmentName MATCHES ANY OF (
+            FatihKeles
+        )
+        bucketName MATCHES ANY OF (
+            ocr-documents
+        )
+        resourceName MATCHES ANY OF (
+            *.jpeg,
+            *.jpg,
+            *.png,
+            *.tiff,
+			*.pdf,
+            *.JPEG,
+            *.JPG,
+            *.PNG,
+            *.TIFF,
+			*.PDF
+        )
+    )
+)
 ```
 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Chart Genres](./resources/edit-dashboard-genres.jpg)](https://youtu.be/WpJa9wHkcF4)
+If you want to create it with cli
+```bash 
+## create an actions file input
+cat <<EOF > actions.json
+{
+  "actions": [
+    {
+      "actionType": "FAAS",
+      "description": "Submit OCR Job",
+      "functionId": "ocid1.fnfunc.oc1.uk-london-1.aaaaaaaaq5jztq4ffg7jnnzcootoawq2t2fl7iiucmgu6zxzmkvzprvetokq",
+      "isEnabled": true
+    }
+  ]
+}
+EOF
+
+## pass conditions and actions
+oci events rule create --display-name 'OCR Documents Uploaded to Object Storage Bucket' --compartment-id $compartment_id --is-enabled true --condition '{"eventType":["com.oraclecloud.objectstorage.createobject"],"data":{"compartmentName":"FatihKeles","bucketName":"ocr-documents","resourceName":["*.jpeg","*.jpg","*.png","*.tiff","*.pdf","*.JPEG","*.JPG","*.PNG","*.TIFF","*.PDF"]}}' --actions file://actions.json --wait-for-state=ACTIVE
+```
 
 [^ back](#steps)
 
-#### 7.2. Chart Runtime (1 min)
-We want to show all records at once and runtime is a good candidate for this. We will see a bell shaped normal distribution that should be noticed.
- - Use this sql for series data source
+## 5. Enable Logs 
+Enabling logs is important for debugging and monitoring during development. I recommend collecting all project logs (event rules, functions etc. ) under same log group, so you can search entire flow.
+![enable-logs.jpg](./resources/enable_logs.JPG)
+
+Once logs are enabled you can monitor and trace the flow.
+![search-logs](./resources/search-logs.JPG)
+
+[^ back](#steps)
+
+## 6. Create Table and Enable ORDS
+
+### a. For SQL*Plus connection to ATP follow the steps below or connect to database as you want
+- Download the wallet and unzip it
+- Edit `sqlnet.ora` file so that it show wallet location
+```
+WALLET_LOCATION = (SOURCE = (METHOD = file) (METHOD_DATA = (DIRECTORY="/home/ubuntu/adb_wallets/Wallet_SITL8RH4U9O8HT3X")))
+```
+- Export `TNS_ADMIN` environment variable to show wallet location
+```bash
+export TNS_ADMIN=/home/ubuntu/adb_wallets/Wallet_SITL8RH4U9O8HT3X
+```
+- Connect using one of the service definitions in your `tnsnames.ora` file
+```bash
+sqlplus ADMIN@sitl8rh4u9o8ht3x_low
+```
+- Or you can also provide full description 
+```bash
+sqlplus ADMIN@'(description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.uk-london-1.oraclecloud.com))(connect_data=(service_name=gf5f99999999999_sitl8rh4u9o8ht3x_low.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adwc.eucom-central-1.oraclecloud.com, OU=Oracle BMCS FRANKFURT, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))'
+```
+
+### b. Create table
+
 ```sql
-SELECT runtime, count(*) value
-  FROM movies
- GROUP BY runtime
- ORDER BY 1 ASC
-```
- - Make these changes on the second chart
-```
-Region.Title: Runtime
-Region.Attributes.Chart.Type: Bar
-Region.Series.[0].Column Mapping.Label: RUNTIME
-Region.Series.[0].Column Mapping.Value: VALUE
-Region.Series.[0].Performance.Maximum Rows to Process: Null
-Region.Axes.x.Title: Minutes
+create table os_text_extracts (
+    resource_Id_hash varchar2(255), 
+    event_id varchar2(255),
+    event_Time date,
+    compartment_Id varchar2(255),
+    compartment_Name varchar2(255),
+    resource_Name varchar2(255),
+    resource_Id varchar2(255),
+    os_namespace varchar2(255),
+    bucket_Name varchar2(255),
+    bucket_Id varchar2(255),
+    extracted_text clob, 
+    document_type varchar2(255),
+    language_code varchar2(10),
+    page_count number,
+    mime_type varchar2(80),
+    processing_job_id varchar2(255),
+    output_file_name varchar2(255),
+    searchable_document_name varchar2(255),
+    CONSTRAINT os_text_extracts_pk PRIMARY KEY (resource_Id_hash)
+)
+/
 ```
 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Chart Runtime](./resources/edit-dashboard-runtime.jpg)](https://youtu.be/rRWLwI6fLl8)
-
-[^ back](#steps)
-
-#### 7.3. Chart ROI (2 min)
-This chart is going to be a little complicated. We want to see how much is spend on each genre and how it is paying off. We will use 3 series, **Budget** and **Revenue** share the same y-axis whereas **ROI** uses the y2-axis as it is more like a percent
- - Make these changes on the third chart
-```
-Region.Title: Return
-Region.Attributes.Chart.Type: Combination
-Region.Attributes.Tooltip.Show Group Name: False
-```
- - Use the following sql for each series (Alternatively you can also copy and paste the series then change it).
-```sql 
-SELECT genre, AVG(budget) avg_budget, AVG(revenue) avg_revenue, TRUNC(SUM(revenue)/SUM(budget)*100, 2) avg_return
-  FROM movies
- WHERE NVL(budget,0) > 0 
- GROUP BY genre
- ORDER BY 4 ASC
-```
- - Add Budget and Revenue Series 
-```
-Region.Series.[Budget|Revenue].Identification.Name: Budget|Revenue
-Region.Series.[Budget|Revenue].Identification.Type: Bar 
-Region.Series.[Budget|Revenue].Column Mapping.Label: GENRE
-Region.Series.[Budget|Revenue].Column Mapping.Label: AVG_BUDGET|AVG_REVENUE
-```
- - Add ROI Series and set **Assigned To Y2 Axis** to true
-```
-Region.Series.[ROI].Identification.Name: ROI
-Region.Series.[ROI].Identification.Type: Line 
-Region.Series.[ROI].Column Mapping.Label: GENRE
-Region.Series.[ROI].Column Mapping.Label: AVG_RETURN
-Region.Series.[ROI].Appearance.Assigned To Y2 Axis: True
-```
- 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Chart ROI](./resources/edit-dashboard-roi.jpg)](https://youtu.be/qdY-XIH6y04)
-
-[^ back](#steps)
-
-#### 7.4. Chart Major Producers (2 min)
-In this chart we are going to display 4 different information and relationhips, so we are using a bubble chart.
- - Use this query for series data source
+### c. Enable REST access
 ```sql
-SELECT production_company, SUM(budget) budget, SUM(revenue) revenue, COUNT(*) ctr
-  FROM MOVIES
- GROUP BY production_company
- ORDER BY 2 DESC
-```
- - Use the following settings
-```
-Region.Title: Producers
-Region.Attributes.Chart.Type: Bubble
-Region.Attributes.Tooltip.Show Group Name: No
-Region.Series.[0].Column Mapping.Series Name: Production_Company
-Region.Series.[0].Column Mapping.Label: Production_Company
-Region.Series.[0].Column Mapping.X: CTR
-Region.Series.[0].Column Mapping.Y: SUM(Budget)
-Region.Series.[0].Column Mapping.z: SUM(Revenue)
-Region.Series.[0].Performance.Maximum Rows to Process: 30
-Region.Axes.x.Title: #Movies
-Region.Axes.y.Title: Budget
+BEGIN
+    ORDS.ENABLE_OBJECT(
+        P_ENABLED      => TRUE,
+        P_SCHEMA      => 'ADMIN',
+        P_OBJECT      => 'OS_TEXT_EXTRACTS',
+        P_OBJECT_TYPE      => 'TABLE',
+        P_OBJECT_ALIAS      => 'os_text_extracts',
+        P_AUTO_REST_AUTH      => FALSE
+        );
+    COMMIT;
+END;
+/
 ```
 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Chart Producers](./resources/edit-dashboard-producers.jpg)](https://youtu.be/_lEY1nDCRq8)
+### d. Test access 
+```bash
+curl --location "https://gf5f9ffc50769d0-sitl8rh4u9o8ht3x.adb.uk-london-1.oraclecloudapps.com/ords/admin/os_text_extracts/" | jq -r '.items[] | "\(.resource_name) \(.document_type) \(.page_count) \(.mime_type)" ' | column -t
+```
 
 [^ back](#steps)
 
-## 8. Report Page (5 min)
-This is pretty much looks like a tabular report page. Whereas there is more provided by APEX behind it. 
- - First simplfy the report by selecting the display columns and **Save** it.
-```
-Display in Report
-	Title
-	Genre
-	Release Date
-	Production Company
-	Popularity
-	Vote Average
-	Budget
-	Revenue
-```
- - **Search Text** like "lord of the rings" or "amadeus" or "lucasfilm"
- - Let's experiment with **Group By** functionality
-```sql
-Avg(Budget), Avg(Revenue), Avg(Vote Average), Count(*) Group by Genre
-```
- - Try to find which genre has most revenue and liked by people 
-```
-Order by Revenue desc, Vote Average desc
-```
- - Now change group by from *Genre* to *Production Company* and averages to sum function so that we can see biggest production companies. 
- - Let's create the genre chart here, but this time we can **Filter**
-```
-Count(*) Group by Genre
-```
- - Explore **Download** menu
- - Explore **Subscribe** menu
+## 7. Test what we have done so far 
+You can check `test.sh` and `run-demo.sh` scripts for testing and running using command line. Or you can simply upload files into object storage bucket and monitor events using logging service.
 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Report Page](./resources/report-page.jpg)](https://youtu.be/AHfihurkGKQ)
+As you can see below, once the vision service is done with the receipt image we uploaded, we have a json file listing `coordinates of each word`, line which can be used for `highligting`. And also we have a `searchable pdf` file generated from the image. 
+![ah-receipt-ocr](./resources/ah-receipt-ocr.JPG)
 
-[^ back](#steps)
+**Tip**: Place jpg files under `analyze-documents/bulk` folder that needs to be converted to a searchable pdf and run `run-demo.sh` file. The script will delete everything from previuos run and will start a new demo by uploading new files. You can edit and comment out the steps as you like.
 
-## 9. Faceted Search Page (8 min)
-We modified faceted search page to display cards. This page will be most appealing page when we are done. 
- -  *POSTER_PATH* column to page source query. Follow *Content Body.Movies.Source.SQL Query* path on page components. You will be able to see new column. Also check if you already have *TITLE*
- - Edit *CARD_TEXT* to display the movie poster.
-```
-Content Body.Movies.Columns.CARD_TEXT.Column Formatting.HTML Expression: 
-<img src="https://image.tmdb.org/t/p/w500/#POSTER_PATH#" alt="#TITLE# Poster" style="max-width: 100%"/>
-```
- - Follow *Content Body.Movies.Source.SQL Query* path on page components and replace *null CARD_LINK,* with the following piece of SQL query.
-```sql
-'https://www.imdb.com/title/'||IMDB_ID CARD_LINK,
-```
- - Change the display features using "Quick Edit" feature at runtime.
-```
-Content Body.Movies.Attributes.Appearance.Template Options.Icons: No Icons
-Content Body.Movies.Attributes.Appearance.Template Options.Layout: 5 Columns
-```
- - In order to add a facet for Production Companies we need to add *PRODUCTION_COMPANY* column to page source query. Follow *Content Body.Movies.Source.SQL Query* path on page components.
- - Create a new facet as first item
-```
-Search.Facets.[0].Identification.Name: P8_PRODUCTION_COMPANY
-Search.Facets.[0].Label.Label: Production Companies
-Search.Facets.[0].List of Values.Type: Distinct Values
-Search.Facets.[0].Source.Database Column: PRODUCTION_COMPANY
-```
+```bash 
+$ ./run-demo.sh 
+Flow:
+1. Delete database entries
+2. Delete object storage data
+3. Upload test files to object storage
+4. Check object storage for OCR results
+5. Check database results
 
- - Create a new *Region* in *Breadcrumb Bar* position
-```
-Breadcrumb Bar.[0].Identification.Title: Search Bar Region
-Breadcrumb Bar.[0].Appearance.Template: Blank with Attributes (No Grid)
-```
- - Under newly created region create a new *Page Item*
-```
-Breadcrumb Bar.Search Bar Region.[].Name: P8_SEARCH_TEXT
-Breadcrumb Bar.Search Bar Region.[].Appearance.Template: Hidden
-Breadcrumb Bar.Search Bar Region.[].Appearance.Icon: fa-search
-Breadcrumb Bar.Search Bar Region.[].Appearance.Value Placeholder: Search Movies...
-Breadcrumb Bar.Search Bar Region.[].Appearance.Template Options.Stretch Form Item: True
-Breadcrumb Bar.Search Bar Region.[].Appearance.Template Options.Size: X Large
-```
- - Modify search facet to use the text field
-```
-Search.Facets.P8_SEARCH.Settings.Input Field: External Page Item
-Search.Facets.P8_SEARCH.Settings.External Page Item: P8_SEARCH_PRODUCTION_COMPANY
-```
- - Delete Breadcrumb page title
- 
-*Control click the below screenshot to see the video* <img src="./resources/yt_logo_rgb_light_64.png" width=60/>.
-[![Faceted Search Page](./resources/faceted-search-page.jpg)](https://youtu.be/o2CBC0jro74)
+Starting Demo!
+Press [Enter] key to continue...
 
-[^ back](#steps)
+############################################## 0. start database if it is not already running ###################################
+Database State AVAILABLE
 
-## Getting Beyond This Workshop
-1. Subscribe to Oracle Cloud with [Oracle Free Tier](https://www.oracle.com/cloud/free/ "Oracle Free Tier") offer and keep it!
-2. Quick start APEX with [Oracle APEX](https://apex.oracle.com/en/learn/getting-started/ "Oracle APEX") website
-3. Check Oracle Application Express [YouTube Channel](https://www.youtube.com/channel/UCEpIXFjcQIztReQNLymvYrQ)
-4. Follow [Oracle APEX Blog](https://blogs.oracle.com/apex/) for news, tips and tricks
-5. Don't forget to check out sample applications!
-6. Use Oracle's [training material](http://apex.oracle.com/pls/apex/f?p=44785:2:0:FORCE_QUERY::2:P2_GROUP_ID,P2_PRODUCT_ID,P2_TAGS:1000,2039 "Learning Library") to learn
-7. Practise, practise, practise to master your development skills!
 
-[^ back](#steps)
+Press [Enter] key to continue...
+
+############################################## 1. delete database test-data ####################################################
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100 12435    0 12435    0     0   2442      0 --:--:--  0:00:05 --:--:--  2536
+{"rowsDeleted":1}{"rowsDeleted":1}{"rowsDeleted":1}{"rowsDeleted":1}{"rowsDeleted":1}
+5 records deleted
+
+Press [Enter] key to continue...
+
+############################################## 2. delete object storage test-data ##############################################
+Deleting object tbp-Ammendment2-Signed.pdf
+Deleting object tbp-Bill-Of-Sales-1958-Chevy.tiff
+Deleting object tbp-Binder1.pdf
+Deleting object tbp-Binder8.pdf
+Deleting object tbp-ah_receipt.jpg
+
+5 objects deleted in ocr-documents
+
+Deleting object tbp-Ammendment2-Signed.pdf.json
+Deleting object tbp-Ammendment2-Signed.pdf.pdf
+Deleting object tbp-Bill-Of-Sales-1958-Chevy.tiff.pdf
+Deleting object tbp-ah_receipt.jpg.pdf
+
+4 objects deleted in ocr-extracts
+
+Deleting object ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa4j3a475yjiuxm7zlrnkgznp2xewfsnb2ecoqfnmn7uoq/lrfymfp24jnl_ocr-documents_tbp-Bill-Of-Sales-1958-Chevy.tiff.json
+Deleting object ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaa4j7tnfcbx3xafnzimu726b3vdnbfxhk32jaku3rdqy7a/
+Deleting object ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaahejwcukztkszf637pdnyo6jpuandf2yjjpmierxrbl4q/
+Deleting object ai-vision-document/ocid1.aivisiondocumentjob.oc1.uk-london-1.amaaaaaa74akfsaajepjhuojrpbzstvu67xbggysef7ezk7mjdg3s2uvmgbq/lrfymfp24jnl_ocr-documents_tbp-ah_receipt.jpg.json
+
+4 objects deleted in ocr-documents-temp
+
+Press [Enter] key to continue...
+
+############################################## 3. upload object storage test-data ###############################################
+Uploading Ammendment2-Signed.pdf
+Uploading object  [####################################]  100%
+{
+  "etag": "66edf26d-7844-42cb-a5f1-de4e953630ea",
+  "last-modified": "Wed, 12 Oct 2022 11:19:42 GMT",
+  "opc-content-md5": "fyvFDAI67fpMs8Ulfj1qrQ=="
+}
+Uploading Bill-Of-Sales-1958-Chevy.tiff
+
+{
+  "etag": "db36f088-cfd3-459e-9ef8-a22f9bbc7a76",
+  "last-modified": "Wed, 12 Oct 2022 11:19:43 GMT",
+  "opc-content-md5": "NzcAXXh9y4DcaAsq4LPh1Q=="
+}
+Uploading Binder1.pdf
+Uploading object  [####################################]  100%          
+{
+  "etag": "5b9b56a7-675d-4612-8dd5-07700831ccd0",
+  "last-modified": "Wed, 12 Oct 2022 11:19:46 GMT",
+  "opc-content-md5": "v4bnIXMVw9nlGaPqfbSCdQ=="
+}
+Uploading Binder8.pdf
+Uploading object  [####################################]  100%
+{
+  "etag": "26fd4cb9-a0c0-4231-84f6-0e3b468a75a4",
+  "last-modified": "Wed, 12 Oct 2022 11:19:48 GMT",
+  "opc-content-md5": "63u9jsoxHB0Cszth+1nDlw=="
+}
+Uploading ah_receipt.jpg
+{
+  "etag": "793d6e20-6955-4543-aff3-a055ba8b0074",
+  "last-modified": "Wed, 12 Oct 2022 11:19:49 GMT",
+  "opc-content-md5": "71x6ngJbROnf5iwCtBz4/g=="
+}
+
+5 files uploaded
+
+Press [Enter] key to continue...
+
+Wait for Events service to invoke Functions
+Press [Enter] key to continue...
+
+############################################## 4. check object storage test-data #################################################
+tbp-Ammendment2-Signed.pdf
+tbp-Bill-Of-Sales-1958-Chevy.tiff
+tbp-Binder1.pdf
+tbp-Binder8.pdf
+tbp-ah_receipt.jpg
+
+5 objects found
+Press s 'Source' d 'Destination' t 'Temp' bucket, x to Exit Loop...
+
+############################################## 5. check database test-data ######################################################
+FileName                       FileType #Pages MimeType
+tbp-Binder1.pdf                    OTHERS   41  application/pdf
+tbp-Ammendment2-Signed.pdf         OTHERS   3   application/pdf
+tbp-Bill-Of-Sales-1958-Chevy.tiff  INVOICE  1   image/tiff
+tbp-Binder8.pdf                    OTHERS   8   application/pdf
+tbp-ah_receipt.jpg                 RECEIPT  1   image/jpeg
+Press r to Re-Query x to Continue...x
+Completed!
+```
