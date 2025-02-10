@@ -18,6 +18,9 @@ for free for life as long as you use them.
 2. Setup OCI CLI as described [here](https://github.com/oracle/oci-cli)
 3. Setup your functions development environment by choosing one of the options listed [here](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsquickstartguidestop.htm). 
 
+## Compute Maintenance with Functions
+
+
 ## Auto OCR Files
 ![OCR Your Files](./resources/vision-document-ai.JPG)
 Suppose that we want to automate extracting text from images and non-convertible PDF files when files are uploaded to object storage. Since the files might be bigger than online processing limits of services it creates an asynchronous jobs. After the jobs are completed extracted text is stored in database, as well as searchable PDF document and json outputs are stored under another bucket for later usage. 
