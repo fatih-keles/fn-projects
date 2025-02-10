@@ -19,7 +19,47 @@ for free for life as long as you use them.
 3. Setup your functions development environment by choosing one of the options listed [here](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsquickstartguidestop.htm). 
 
 ## Compute Maintenance with Functions
+Problem Statement: We have a compute instance that is running on an old version of Windows, and unfortunately we can't upgrade. For reasons known and unkown the OS dies (BSOD) and only a restart can bring it back to life. Without any modernization effort we want to check if the instance is reachable and restart it if necessary. The solution should be cost and time effective, shouldn't add any additional monitoring or automation components. 
 
+```plaintext
++-------------------+
+| Start             |
++-------------------+
+        |
+        v
++-------------------+
+| Invoke Function   |
+| Every 5 Minutes   |
++-------------------+
+        |
+        v
++-------------------+
+| Check if Instance |
+| is Reachable      |
++-------------------+
+        |
+        v
++-------------------+       +-------------------+
+| Is Instance       |  Yes  | Log Action in     |
+| Reachable?        |------>| Logging Service   |
++-------------------+       +-------------------+
+        | No
+        v
++-------------------+
+| Restart Instance  |
++-------------------+
+        |
+        v
++-------------------+
+| Log Action in     |
+| Logging Service   |
++-------------------+
+        |
+        v
++-------------------+
+| Exit              |
++-------------------+
+```
 
 ## Auto OCR Files
 ![OCR Your Files](./resources/vision-document-ai.JPG)
