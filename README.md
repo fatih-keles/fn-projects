@@ -62,6 +62,8 @@ Problem Statement: We have a compute instance that is running on an old version 
 +-------------------+
 ```
 
+Click :point_right: [Restart Compute Instance with Functions](./oci-compute-control-python/readme.md) for complete steps.
+
 ## Auto OCR Files
 ![OCR Your Files](./resources/vision-document-ai.JPG)
 Suppose that we want to automate extracting text from images and non-convertible PDF files when files are uploaded to object storage. Since the files might be bigger than online processing limits of services it creates an asynchronous jobs. After the jobs are completed extracted text is stored in database, as well as searchable PDF document and json outputs are stored under another bucket for later usage. 
