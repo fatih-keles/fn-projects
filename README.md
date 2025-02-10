@@ -5,8 +5,9 @@
 Collection of useful FN samples that can be applied to real life scenarios.
 
 ## List of Projects 
-1. [Auto OCR Files](#auto-ocr-files)
-2. [Auto Blur Images](#auto-blur-images)
+1. [Compute Maintenance with Functions](#compute-maintenance-with-functions)
+2. [Auto OCR Files](#auto-ocr-files)
+3. [Auto Blur Images](#auto-blur-images)
 
 ## Common Prerequsites
 1. Create Free Oracle Cloud account, start [here](https://www.oracle.com/cloud/free/ "Oracle Free Tier"). It is totaly free, takes less than two minutes. Credit card information is required to verify your identity, no charges will be incurred. You will get free
