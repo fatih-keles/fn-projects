@@ -182,7 +182,7 @@ Allow dynamic-group <dynamic-group-name> to manage all-resources in [ tenancy | 
 
 ### 22. Schedule The Function
 ![scheduler.PNG](./resources/scheduler.PNG)
-It's not uncommon to use functions for maintenance and housekeeping, data science, ai and ml, and data processing. I scheduled the function to run every 5 minutes using [Schedules](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsschedulingfunctions-about.htm)
+It's not uncommon to use functions for maintenance and housekeeping, data science, ai and ml, and data processing. I scheduled the function to run every 5 minutes top of the hour using [Schedules](https://docs.oracle.com/en-us/iaas/Content/Functions/Tasks/functionsschedulingfunctions-about.htm)
 
 ## Troubleshooting
 
